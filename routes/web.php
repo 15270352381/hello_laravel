@@ -18,3 +18,12 @@ Route::get('/help', 'StaticPagesController@help')->name('help');
 Route::get('/about', 'StaticPagesController@about')->name('about');
 //注册页
 Route::get('/signup', 'UsersController@create')->name('signup');
+//登录视图
+Route::get('/login', 'SessionsController@create')->name('login');
+//登录逻辑
+Route::post('/login', 'SessionsController@store')->name('login');
+//退出登录
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
+Route::get('signup', 'UsersController@create')->name('signup');
+//用户信息
+Route::resource('users', 'UsersController');
