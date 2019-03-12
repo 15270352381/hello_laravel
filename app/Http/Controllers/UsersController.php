@@ -21,6 +21,11 @@ class UsersController extends Controller
     //表单验证
     public function store(Request $request)
     {
+<<<<<<< HEAD
+=======
+    	// var_dump($request);
+    	// exit;
+>>>>>>> sign-up
     	$this->validate($request, [
     			'name' => 'required|max:50',
 			    'email' => 'required|email|unique:users|max:255',
