@@ -26,3 +26,7 @@ Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store')->name('login');
 //退出登录
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+//更新用户信息
+Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');
+// //用户列表
+// Route::get('users/index', 'UsersController@index')->name('users.index');
