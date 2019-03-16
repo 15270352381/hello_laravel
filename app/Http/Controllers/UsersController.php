@@ -94,6 +94,7 @@ class UsersController extends Controller
     //删除用户信息
     public function destroy(User $user)
     {
+        // 设置只有管理员才能删除
         $this->authorize('destroy', $user);
         $user->delete();
         session()->flash('success', '成功删除用户！');
@@ -104,12 +105,12 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'aufree@yousails.com';
-        $name = 'Aufree';
+        // $from = 'aufree@yousails.com';
+        // $name = 'Aufree';
         $to = $user->email;
         $subject = "感谢注册 Sample 应用！请确认你的邮箱。";
-        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
-            $message->from($from, $name)->to($to)->subject($subject);
+        Mail::send($view, $data, function ($message) use ($to, $subject) {
+            $message->to($to)->subject($subject);
         });
     }
     //激活成功

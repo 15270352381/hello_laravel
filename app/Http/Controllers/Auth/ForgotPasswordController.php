@@ -29,4 +29,9 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+    // //显示发送邮箱
+    // public function sendResetLinkEmail()
+    // {
+    //     return view('auth.passwords.email');
+    // }
 }
